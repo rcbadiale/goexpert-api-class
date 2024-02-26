@@ -1,0 +1,22 @@
+### Create user
+# @name create_user
+
+POST http://localhost:8000/user HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Beto Cones",
+  "email": "beto@cones.com",
+  "password": "111"
+}
+
+### Generate JWT
+# @name generate_token
+
+POST http://localhost:8000/user/generate_token HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "beto@cones.com",
+  "password": "111"
+}

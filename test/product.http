@@ -1,0 +1,44 @@
+@id = {{get_products.response.body.0.id}}
+@token = <token from user.generate_token>
+
+### Create product
+# @name create_product
+
+POST http://localhost:8000/products HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "My product",
+  "price": 10
+}
+
+### Get products
+# @name get_products
+
+GET http://localhost:8000/products HTTP/1.1
+Authorization: Bearer {{token}}
+
+### Get product
+# @name get_product
+
+GET http://localhost:8000/products/{{id}} HTTP/1.1
+Authorization: Bearer {{token}}
+
+### Update product
+# @name update_product
+
+PUT http://localhost:8000/products/{{id}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "My product updated",
+  "price": 111
+}
+
+### Delete product
+# @name delete_product
+
+DELETE http://localhost:8000/products/{{id}} HTTP/1.1
+Authorization: Bearer {{token}}
